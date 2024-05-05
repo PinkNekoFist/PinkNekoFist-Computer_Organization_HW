@@ -1,4 +1,3 @@
-
 "li t1, 0\n\t"
     "addi %[lw_cnt], %[lw_cnt], 1\n\t"
 "i_loop:\n\t" 
