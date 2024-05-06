@@ -1,5 +1,7 @@
 "li t1, 0\n\t"
-    "addi %[lw_cnt], %[lw_cnt], 1\n\t"
+"li t4, -1\n\t"
+"li t3, -1\n\t"
+    "addi %[lw_cnt], %[lw_cnt], 3\n\t"
 "i_loop:\n\t" 
 
     "add t2, x0, t1\n\t" 
@@ -8,26 +10,12 @@
         "addi %[others_cnt], %[others_cnt], 1\n\t"
     "addi t2, t2, 1\n\t" 
         "addi %[add_cnt], %[add_cnt], 1\n\t"
-
-    "li t4, 1\n\t"       
-        "addi %[lw_cnt], %[lw_cnt], 1\n\t"
-    "and t3, t1, t4\n\t" 
-        "addi %[others_cnt], %[others_cnt], 1\n\t"
-        "addi %[others_cnt], %[others_cnt], 1\n\t"
-    "bne t3, t4, i_even\n\t"
-
     
-    "li t4, -1\n\t"
-        "addi %[lw_cnt], %[lw_cnt], 1\n\t"
-    "mul t2, t2, t4\n\t" 
-        "addi %[mul_cnt], %[mul_cnt], 1\n\t"
-    
-    "i_even:\n\t"
     "fcvt.d.w f1, t2\n\t" 
         "addi %[others_cnt], %[others_cnt], 1\n\t"
-    "li t4, 1\n\t"
-        "addi %[lw_cnt], %[lw_cnt], 1\n\t"
-    "fcvt.d.w f2, t4\n\t"
+    "mul t3, t3, t4\n\t"
+        "addi %[mul_cnt], %[mul_cnt], 1\n\t"
+    "fcvt.d.w f2, t3\n\t"
         "addi %[others_cnt], %[others_cnt], 1\n\t"
     "fdiv.d f1, f2, f1\n\t" 
         "addi %[div_cnt], %[div_cnt], 1\n\t"
